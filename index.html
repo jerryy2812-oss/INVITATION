@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suzan & Zeeshaan | Engagement</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Amiri:wght@400;700&family=Cinzel:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+background:#07130f;
+color:#f5ead0;
+font-family:Montserrat,sans-serif;
+overflow-x:hidden;
+-webkit-text-size-adjust:100%;
+touch-action:pan-y;
+}
+
+#loader{
+position:fixed;
+inset:0;
+background:#07130f;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+transition:1s;
+}
+
+.loader-content{text-align:center;animation:fadeUp 1.5s}
+.loader-symbol{font:55px Amiri;color:#d8b45c}
+.loader-content h2{font:30px "Cormorant Garamond",serif;letter-spacing:4px}
+.loader-content p{font-size:11px;letter-spacing:3px;color:#a9b8ad}
+
+section{
+min-height:100vh;
+padding:90px 7%;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+overflow:hidden;
+}
+
+.pattern{
+position:absolute;
+inset:0;
+opacity:.05;
+background-image:
+linear-gradient(30deg,#d8b45c 12%,transparent 12.5%,transparent 87%,#d8b45c 87.5%),
+linear-gradient(150deg,#d8b45c 12%,transparent 12.5%,transparent 87%,#d8b45c 87.5%);
+background-size:80px 140px;
+pointer-events:none;
+}
+
+.hero{
+background:
+linear-gradient(rgba(7,19,15,.55),rgba(7,19,15,.72)),
+url("hero-bg.jpg") center/cover no-repeat;
+flex-direction:column;
+text-align:center;
+}
+
+.arabic{font:34px Amiri;color:#d8b45c}
+.small{font-size:11px;letter-spacing:5px;color:#9eb0a5;text-transform:uppercase}
+
+.names{
+font:400 clamp(65px,13vw,145px) "Great Vibes";
+color:#e7ca7c;
+line-height:1;
+margin:25px 0;
+}
+
+.amp{
+font:55px "Cormorant Garamond",serif;
+color:#fff;
+}
+
+.line{
+width:120px;
+height:1px;
+background:#d8b45c;
+margin:25px auto;
+}
+
+.hero-date{
+font:28px "Cormorant Garamond",serif;
+letter-spacing:4px;
+}
+
+.hero-location{
+font-size:11px;
+letter-spacing:3px;
+color:#9ba99f;
+text-transform:uppercase;
+margin-top:10px;
+}
+
+.scroll{
+position:absolute;
+bottom:30px;
+font-size:10px;
+letter-spacing:4px;
+color:#a9b8ad;
+animation:bounce 2s infinite;
+}
+
+.scroll:after{
+content:"↓";
+display:block;
+color:#d8b45c;
+font-size:20px;
+}
+
+.intro{
+background:
+linear-gradient(rgba(11,27,21,.88),rgba(11,27,21,.88)),
+url("islamic.jpg") center/cover no-repeat;
+flex-direction:column;
+text-align:center;
+}
+
+.event,.contact{
+background:#0b1b15;
+flex-direction:column;
+text-align:center;
+}
+
+.photo{
+background:
+linear-gradient(rgba(7,19,15,.55),rgba(7,19,15,.75)),
+url("chapter-bg.jpg") center/cover no-repeat;
+flex-direction:column;
+text-align:center;
+}
+
+.countdown-section{
+background:
+linear-gradient(rgba(7,19,15,.45),rgba(7,19,15,.75)),
+url("gold-lanterns.jpg") center/cover no-repeat;
+flex-direction:column;
+text-align:center;
+}
+
+.venue{
+background:
+linear-gradient(rgba(7,19,15,.55),rgba(7,19,15,.75)),
+url("venue.jpg") center/cover no-repeat;
+flex-direction:column;
+text-align:center;
+}
+
+.final{
+background:
+linear-gradient(rgba(7,19,15,.45),rgba(7,19,15,.8)),
+url("moon-garden.jpg") center/cover no-repeat;
+flex-direction:column;
+text-align:center;
+}
+
+.section-title{
+  margin-bottom: 120px;
+font:500 clamp(42px,7vw,75px) "Cormorant Garamond",serif;
+}
+
+.gold{color:#d8b45c}
+
+.intro-text{
+max-width:750px;
+font:27px "Cormorant Garamond",serif;
+line-height:1.6;
+margin-top:24px;
+}
+
+.dua{
+max-width:700px;
+font-size:20px;
+line-height:2;
+color:#9ba99f;
+margin-top:30px;
+}
+
+.photo-frame{
+width:min(850px,100%);
+margin-top:40px;
+padding:10px;
+border:1px solid rgba(216,180,92,.5);
+}
+
+.photo-frame img{
+width:100%;
+height:500px;
+object-fit:cover;
+display:block;
+border-radius:4px;
+}
+
+.countdown{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+max-width:800px;
+width:100%;
+margin-top:40px;
+}
+
+.time-box{
+border:1px solid rgba(216,180,92,.4);
+padding:30px;
+background:rgba(255,255,255,.03);
+}
+
+.time-box span{
+display:block;
+font:800 62px "Cinzel",serif;
+color:#f7d77a;
+letter-spacing:3px;
+text-shadow:0 0 20px rgba(216,180,92,.45);
+}
+
+.time-box small{
+font:600 11px "Cinzel",serif;
+letter-spacing:4px;
+color:#efe0b5;
+}
+
+.event-card{
+max-width:900px;
+width:100%;
+padding:45px;
+border:1px solid rgba(216,180,92,.35);
+margin-top:40px;
+}
+
+.event-date{
+font:40px "Cormorant Garamond",serif;
+color:#e7ca7c;
+}
+
+.timeline{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+margin-top:40px;
+}
+
+.timeline-item{
+padding:25px;
+border-right:1px solid rgba(216,180,92,.2);
+}
+
+.timeline-item:last-child{
+border-right:none;
+}
+
+.timeline-item h3{
+font:30px "Cormorant Garamond",serif;
+}
+
+.timeline-item p{
+font-size:10px;
+color:#9ba99f;
+}
+
+.venue-card{
+max-width:700px;
+width:100%;
+padding:50px;
+border:1px solid rgba(216,180,92,.4);
+margin-top:40px;
+}
+
+.venue-button{
+display:inline-block;
+margin-top:25px;
+padding:13px 30px;
+border:1px solid #d8b45c;
+color:#d8b45c;
+text-decoration:none;
+transition:.3s;
+}
+
+.venue-button:hover{
+background:#d8b45c;
+color:#07130f;
+}
+
+.final-names{
+font:clamp(65px,12vw,125px) "Great Vibes";
+color:#d8b45c;
+}
+
+.heart{
+font-size:28px;
+color:#d8b45c;
+animation:pulse 2s infinite;
+margin-top:25px;
+}
+
+.call-button{
+display:inline-block;
+margin-top:28px;
+padding:15px 36px;
+border:1px solid #d8b45c;
+color:#07130f;
+background:#d8b45c;
+text-decoration:none;
+font-weight:600;
+letter-spacing:1px;
+transition:.35s;
+border-radius:40px;
+}
+
+.call-button:hover{
+background:transparent;
+color:#d8b45c;
+}
+
+.reveal{
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+
+.reveal.show{
+opacity:1;
+transform:none;
+}
+
+.particle{
+position:fixed;
+width:3px;
+height:3px;
+background:#d8b45c;
+border-radius:50%;
+opacity:.5;
+pointer-events:none;
+animation:float 8s linear infinite;
+z-index:5;
+}
+
+.reveal{
+    padding-top: 300px;   /* Adjust 280-340px if needed */
+    text-align: center;
+}
+
+#niche{
+    font-family: "Great Vibes", cursive;
+    font-size: 36px;
+    margin-bottom: 35px;
+}
+
+#from-text{
+    font-family: "Great Vibes", cursive;
+    font-size: 36px;
+    margin-bottom: 18px;
+}
+
+.heart{
+    font-size: 34px;
+    color: #D4AF37;
+    margin-bottom: 30px;   /* Space between heart and names */
+}
+
+.final-names{
+    margin-top: 0;
+}
+
+/* Luxury Two Hearts Merge Animation */
+
+.heart-container{
+    position: relative;
+    width: 220px;      /* Increased width for more separation */
+    height: 80px;
+    margin: 20px auto 35px;
+}
+
+.heart{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    color: #D4AF37;
+}
+
+/* Left Heart */
+.left-heart{
+    animation: leftMerge 3s ease-in-out infinite;
+}
+
+/* Right Heart */
+.right-heart{
+    animation: rightMerge 3s ease-in-out infinite;
+}
+
+/* Final Heart */
+.final-heart{
+    opacity: 0;
+    animation: finalBeat 3s ease-in-out infinite;
+}
+
+.reveal{
+    padding-top: 130px;
+}
+
+.section-title{
+    margin-top: -100px;
+    line-height: 1.08;
+}
+
+/* Reduce space below Almighty Allah */
+.reveal{
+    margin-bottom: 12px;
+}
+
+.section-title{
+    margin-bottom: 8px;
+    line-height: 1.08;
+}
+
+/* Bring Together closer */
+/* Reduce space below Almighty Allah */
+.reveal{
+    margin-bottom: 12px;
+}
+
+.section-title{
+    margin-bottom: 8px;
+    line-height: 1.08;
+}
+
+/* First paragraph */
+.intro-text{
+    margin-top: 0;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 32px;
+    line-height: 1.4;
+    color: #F7F0D5;
+    text-align: center;
+}
+
+/* Second paragraph */
+.dua{
+    margin-top: 22px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 28px;
+    line-height: 1.45;
+    color: rgba(247,240,213,0.8);
+    text-align: center;
+}
+
+/* Left heart comes from far left */
+@keyframes leftMerge{
+    0%{
+        transform: translate(-180%, -50%);
+        opacity:1;
+    }
+    35%{
+        transform: translate(-50%, -50%);
+        opacity:1;
+    }
+    45%,100%{
+        opacity:0;
+    }
+}
+
+/* Right heart comes from far right */
+@keyframes rightMerge{
+    0%{
+        transform: translate(80%, -50%);
+        opacity:1;
+    }
+    35%{
+        transform: translate(-50%, -50%);
+        opacity:1;
+    }
+    45%,100%{
+        opacity:0;
+    }
+}
+
+/* Merged heart beats */
+@keyframes finalBeat{
+    0%,40%{
+        opacity:0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    45%{
+        opacity:1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    55%{
+        transform: translate(-50%, -50%) scale(1.18);
+    }
+    65%{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    75%{
+        transform: translate(-50%, -50%) scale(1.12);
+    }
+    100%{
+        opacity:1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(30px)}
+to{opacity:1;transform:none}
+}
+
+@keyframes bounce{
+50%{transform:translateY(10px)}
+}
+
+@keyframes pulse{
+50%{transform:scale(1.25)}
+}
+
+@keyframes float{
+from{transform:translateY(100vh);opacity:0}
+20%,80%{opacity:.5}
+to{transform:translateY(-10vh);opacity:0}
+}
+
+@media(max-width:700px){
+section{padding:75px 20px}
+.names{font-size:70px}
+.amp{font-size:35px}
+.photo-frame img{height:350px}
+.countdown{grid-template-columns:repeat(2,1fr)}
+.timeline{grid-template-columns:1fr}
+.timeline-item{
+border-right:none;
+border-bottom:1px solid rgba(216,180,92,.2);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+<div class="loader-content">
+<div class="loader-symbol">﷽</div>
+<h2>SUZAN & ZEEHAAN</h2>
+<p>RING CEREMONY & ENGAGEMENT</p>
+</div>
+</div>
+
+<section class="hero">
+<div class="pattern"></div>
+
+<div class="arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+
+<div class="small">Ring Ceremony & Engagement</div>
+
+<div class="names">
+Suzan <span class="amp">&</span> Zeeshaan
+</div>
+
+<div class="line"></div>
+
+<div class="hero-date">05 · 09 · 2026</div>
+
+<div class="hero-location">Saturday · Vadodara</div>
+
+<div class="scroll">SCROLL TO EXPLORE</div>
+</section>
+
+<section class="intro">
+<div class="pattern"></div>
+
+<div class="reveal">
+    <h2 class="section-title">
+        With the Blessings of <span class="gold"><br>Almighty Allah</span>
+    </h2>
+</div>
+
+<p class="intro-text">
+    Together with their families, Suzan & Zeeshaan joyfully invite you to share in their special celebration.
+</p>
+
+<p class="dua">
+    We request the pleasure of your company and your precious blessings on this auspicious occasion.
+</p>
+</section>
+
+<section class="photo">
+<div class="pattern"></div>
+
+<div class="reveal">
+
+<h2 class="section-title">A New Chapter Begins</h2>
+
+<div class="photo-frame">
+<img src="ring-ceremony-hands.jpg" alt="Ring Ceremony">
+</div>
+
+</div>
+</section>
+
+<section class="countdown-section">
+<div class="pattern"></div>
+
+<div class="reveal">
+
+<h2 class="section-title">Countdown</h2>
+
+<div class="countdown">
+<div class="time-box"><span id="days">0</span><small>DAYS</small></div>
+<div class="time-box"><span id="hours">0</span><small>HOURS</small></div>
+<div class="time-box"><span id="minutes">0</span><small>MINUTES</small></div>
+<div class="time-box"><span id="seconds">0</span><small>SECONDS</small></div>
+</div>
+
+</div>
+</section>
+
+<section class="event">
+<div class="pattern"></div>
+
+<div class="reveal">
+
+<h2 class="section-title">Programme Schedule</h2>
+
+<div class="event-card">
+
+<div class="event-date">05 September 2026</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>5:00 PM</h3>
+<p>Guest Arrival</p>
+</div>
+
+<div class="timeline-item">
+<h3>6:00 PM</h3>
+<p>Ring Ceremony</p>
+</div>
+
+<div class="timeline-item">
+<h3>8:00 PM</h3>
+<p>Dinner</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="venue">
+<div class="pattern"></div>
+
+<div class="reveal">
+
+<h2 class="section-title">Venue</h2>
+
+<div class="venue-card">
+
+<h3>Programme Venue</h3>
+
+<p>Shagun Hall, Harni <br>Vadodara, Gujarat</p>
+
+<a class="venue-button" href="https://maps.app.goo.gl/NJ7NpsEQ31uadrf66" target="_blank">
+OPEN MAP
+</a>
+
+</div>
+
+</div>
+</section>
+
+<section class="contact">
+<div class="pattern"></div>
+
+<div class="reveal">
+
+<h2 class="section-title">Contact</h2>
+
+<p class="dua">For any assistance regarding the celebration.</p>
+
+<h3 style="font:32px 'Cormorant Garamond',serif;color:#e7ca7c;margin-top:30px">
+Haji Samir Qureshi
+</h3>
+
+<p style="margin-top:10px;font-size:20px">
++91 88467 50329
+</p>
+
+<a href="tel:+918846750329" class="call-button">
+Call Now
+</a>
+
+</div>
+</section>
+
+<section class="final">
+<div class="pattern"></div>
+
+<div class="reveal">
+
+    <p id="niche">Thank You For Being Part Of Our Special Day</p>
+
+    <p id="from-text">From</p>
+
+    <div class="heart-container">
+    <div class="heart left-heart">❤</div>
+    <div class="heart right-heart">❤</div>
+    <div class="heart final-heart">❤</div>
+</div>
+
+    <div class="final-names">Suzan & Zeeshaan</div>
+
+</div>
+
+</div>
+</section>
+
+<script>
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+const l=document.getElementById("loader");
+l.style.opacity="0";
+setTimeout(()=>l.remove(),1000);
+},1800);
+});
+
+const target=new Date("2026-09-05T17:00:00").getTime();
+
+function updateCountdown(){
+const now=Date.now();
+const d=target-now;
+if(d<=0)return;
+
+days.textContent=Math.floor(d/86400000);
+hours.textContent=Math.floor(d%86400000/3600000);
+minutes.textContent=Math.floor(d%3600000/60000);
+seconds.textContent=Math.floor(d%60000/1000);
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+},{threshold:.2});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+for(let i=0;i<40;i++){
+const p=document.createElement("div");
+p.className="particle";
+p.style.left=Math.random()*100+"vw";
+p.style.animationDelay=Math.random()*8+"s";
+p.style.animationDuration=6+Math.random()*6+"s";
+document.body.appendChild(p);
+}
+
+// Mobile-first smooth auto-scroll
+let autoScroll=true;
+let rafId;
+const scrollSpeed=1.75;
+
+function startAutoScroll(){
+if(!autoScroll)return;
+
+window.scrollBy(0,scrollSpeed);
+
+if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-2){
+autoScroll=false;
+return;
+}
+
+rafId=requestAnimationFrame(startAutoScroll);
+}
+
+setTimeout(()=>{
+requestAnimationFrame(startAutoScroll);
+},3000);
+
+["touchstart","wheel","mousedown","keydown"].forEach(eventName=>{
+window.addEventListener(eventName,()=>{
+autoScroll=false;
+cancelAnimationFrame(rafId);
+},{once:true,passive:true});
+});
+</script>
+
+</body>
+</html>
